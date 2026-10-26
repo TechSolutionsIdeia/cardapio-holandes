@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cardápio · Pizzaria Holandês Campo Mourão</title>
+<meta name="description" content="Cardápio da Pizzaria Holandês em Campo Mourão: tábua de carnes, porções, batatas recheadas, parmegiana, massas, mais de 100 sabores de pizza, pizzas doces e sobremesas.">
+<meta name="theme-color" content="#FAF7F2">
+<link rel="icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Playfair+Display:ital,wght@1,800&display=swap" rel="stylesheet">
+<style>
+  :root{--fundo:#FAF7F2;--linha:#EAE1D4;--texto:#2A1A17;--suave:#7A6A63;--vermelho:#A91C1F;--vinho:#7B2622}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--fundo);color:var(--texto);font-family:Montserrat,system-ui,sans-serif}
+  header{position:sticky;top:0;z-index:5;display:flex;align-items:center;gap:12px;padding:10px 14px;
+         background:rgba(250,247,242,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--linha)}
+  header a.voltar{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;border:1px solid var(--linha);background:#fff;color:var(--texto);text-decoration:none;flex:none}
+  header .logo-cor{height:42px;width:auto;flex:none}
+  header h1{font:italic 800 19px "Playfair Display",Georgia,serif;color:var(--vinho)}
+  .paginas{max-width:720px;margin:0 auto;padding:12px 10px 110px;display:flex;flex-direction:column;gap:10px}
+  .paginas img{width:100%;height:auto;display:block;border-radius:12px;background:#EFE7DC}
+  .nota{text-align:center;font-size:12.5px;color:var(--suave);padding:4px 10px 0}
+  .pedir{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);display:flex;align-items:center;gap:10px;
+         padding:14px 22px;border-radius:999px;background:var(--vermelho);color:#fff;font-weight:700;font-size:15px;
+         text-decoration:none;box-shadow:0 10px 26px rgba(169,28,31,.28);white-space:nowrap}
+  .pedir svg{width:20px;height:20px}
+</style>
+</head>
+<body>
+<header>
+  <a class="voltar" href="index.html" aria-label="Voltar"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m15 6-6 6 6 6"/></svg></a>
+  <img class="logo-cor" src="img/logo-cor.png" alt="Holandês">
+  <h1>Cardápio</h1>
+</header>
+<main class="paginas" id="paginas">
+  <p class="nota">Consulte valores e disponibilidade pelo WhatsApp.</p>
+</main>
+<a class="pedir" href="https://wa.me/5544999608045?text=Ol%C3%A1!%20Vi%20o%20card%C3%A1pio%20e%20quero%20fazer%20um%20pedido%20%F0%9F%8D%95" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.4.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg>
+  Pedir pelo WhatsApp
+</a>
+<script>
+  var box = document.getElementById('paginas');
+  for (var i = 1; i <= 14; i++) {
+    var img = document.createElement('img');
+    img.src = 'img/cardapio-' + (i < 10 ? '0' : '') + i + '.jpg';
+    img.alt = 'Cardápio da Pizzaria Holandês em Campo Mourão, página ' + i + ' de 14';
+    img.loading = i > 2 ? 'lazy' : 'eager';
+    box.appendChild(img);
+  }
+</script>
+</body>
+</html>

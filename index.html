@@ -1,0 +1,228 @@
+﻿<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pizzaria Holandês · Campo Mourão</title>
+<meta name="description" content="Pizzaria, choperia e petiscaria no Centro de Campo Mourão-PR. Mais de 100 sabores de pizza, chope gelado e espaço kids. Delivery pelo WhatsApp, iFood e aiqfome. Quarta a segunda, 18h às 23h.">
+<meta name="theme-color" content="#FAF7F2">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Pizzaria Holandês · Campo Mourão">
+<meta property="og:description" content="Pizzaria, choperia e petiscaria no Centro de Campo Mourão. Peça pelo WhatsApp, iFood ou aiqfome.">
+<meta property="og:image" content="img/og.jpg">
+<link rel="icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Playfair+Display:ital,wght@1,700;1,800&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Pizzaria Holandês",
+  "alternateName": "Holandês Pizzaria, Choperia e Petiscaria",
+  "servesCuisine": ["Pizza", "Petiscos", "Carnes na chapa", "Massas"],
+  "telephone": "+55 44 3523-8687",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Av. Manoel Mendes de Camargo, 1903",
+    "addressLocality": "Campo Mourão",
+    "addressRegion": "PR",
+    "postalCode": "87303-000",
+    "addressCountry": "BR"
+  },
+  "openingHours": "We,Th,Fr,Sa,Su,Mo 18:00-23:00",
+  "acceptsReservations": false,
+  "hasMenu": "cardapio.html",
+  "sameAs": ["https://www.instagram.com/pizzariaholandes/", "https://www.facebook.com/HolandesPizzaria"]
+}
+</script>
+<style>
+  :root{
+    --fundo:#FAF7F2; --card:#FFFFFF; --linha:#EAE1D4; --texto:#2A1A17; --suave:#7A6A63;
+    --vermelho:#A91C1F; --vinho:#7B2622; --creme:#F0DBBA;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{min-height:100vh;font-family:Montserrat,system-ui,sans-serif;color:var(--texto);background:var(--fundo)}
+  .wrap{max-width:440px;margin:0 auto;padding:48px 20px 40px;display:flex;flex-direction:column;align-items:center}
+  .logo-anim{width:min(230px,62vw);height:auto;display:block}
+  .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+  /* abertura com o logo animado */
+  #abertura{position:fixed;inset:0;z-index:100;background:#252625;display:grid;place-items:center;
+            transition:opacity .7s ease, visibility .7s ease}
+  #abertura video{width:100%;height:100%;object-fit:contain;display:block}
+  #abertura.sair{opacity:0;visibility:hidden}
+  #abertura button{position:absolute;bottom:max(22px,env(safe-area-inset-bottom));right:20px;font:600 12px Montserrat,system-ui,sans-serif;
+                   letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.75);background:rgba(255,255,255,.08);
+                   border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:8px 14px;cursor:pointer}
+  html.abrindo body{overflow:hidden}
+
+  /* entrada do conteúdo depois da abertura */
+  .entra{opacity:0;transform:translateY(14px)}
+  .mostrar .entra{opacity:1;transform:none;transition:opacity .6s ease, transform .6s cubic-bezier(.2,.7,.2,1)}
+  .mostrar .entra:nth-child(2){transition-delay:.08s}
+  .mostrar .entra:nth-child(3){transition-delay:.16s}
+  .mostrar .entra:nth-child(4){transition-delay:.24s}
+  .mostrar .entra:nth-child(5){transition-delay:.32s}
+  .mostrar .logo-anim.entra{transform:none;animation:pop .8s cubic-bezier(.2,.8,.25,1.15) both}
+  @keyframes pop{0%{opacity:0;transform:scale(.7)}100%{opacity:1;transform:scale(1)}}
+  .mostrar .links .btn{animation:sobe .55s cubic-bezier(.2,.7,.2,1) both}
+  .mostrar .links > :nth-child(1){animation-delay:.35s}.mostrar .links > :nth-child(2){animation-delay:.42s}
+  .mostrar .links > :nth-child(3){animation-delay:.49s}.mostrar .links > :nth-child(4){animation-delay:.56s}
+  .mostrar .links > :nth-child(6){animation-delay:.63s}.mostrar .links > :nth-child(7){animation-delay:.70s}
+  .mostrar .links > :nth-child(8){animation-delay:.77s}
+  @keyframes sobe{0%{opacity:0;transform:translateY(16px)}100%{opacity:1;transform:none}}
+  /* trava: se algum navegador não rodar as animações, o conteúdo aparece mesmo assim */
+  .fim .entra,.fim .links .btn,.fim .logo-anim.entra{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}
+  @media (prefers-reduced-motion:reduce){#abertura{display:none}.entra{opacity:1;transform:none}.mostrar .links .btn,.mostrar .logo-anim.entra{animation:none}}
+  .sub{margin-top:8px;text-align:center;font-size:14px;line-height:1.55;color:var(--suave)}
+  .chips{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 14px;margin-top:12px}
+  .chip{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;color:var(--suave)}
+  .chip svg{width:14px;height:14px;flex:none}
+  .status{width:7px;height:7px;border-radius:50%;background:#B9B0A8;flex:none}
+  .status.on{background:#22A55A;box-shadow:0 0 0 3px rgba(34,165,90,.18)}
+  .links{width:100%;display:flex;flex-direction:column;gap:10px;margin-top:28px}
+  .btn{display:flex;align-items:center;gap:14px;width:100%;min-height:58px;padding:12px 16px;border-radius:14px;
+       text-decoration:none;font-weight:600;font-size:15px;color:var(--texto);
+       background:var(--card);border:1px solid var(--linha);
+       transition:transform .15s ease, border-color .15s ease, box-shadow .15s ease}
+  .btn:hover{transform:translateY(-1px);border-color:#D9C9B4;box-shadow:0 6px 18px rgba(74,40,30,.07)}
+  .btn .ic{width:22px;height:22px;display:grid;place-items:center;flex:none;color:var(--vermelho)}
+  .btn .ic svg{width:22px;height:22px}
+  .btn small{display:block;font-weight:500;font-size:12px;color:var(--suave);margin-top:2px}
+  .btn .arrow{margin-left:auto;color:#C4B6A6;flex:none}
+  .btn.primary{background:var(--vermelho);border-color:var(--vermelho);color:#fff}
+  .btn.primary .ic,.btn.primary .arrow{color:#fff}
+  .btn.primary small{color:rgba(255,255,255,.82)}
+  .btn.primary:hover{background:#951619;box-shadow:0 8px 22px rgba(169,28,31,.22)}
+  .sep{width:100%;margin:14px 0 2px;text-align:center;font-size:11px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:#A89A8F}
+  .social{display:flex;gap:18px;margin-top:30px}
+  .social a{color:var(--suave)}
+  .social a:hover{color:var(--vermelho)}
+  .social svg{width:22px;height:22px}
+  footer{margin-top:22px;text-align:center;font-size:11.5px;line-height:1.7;color:#A89A8F}
+  footer strong{color:var(--suave);font-weight:600}
+  @media (prefers-reduced-motion:reduce){.btn{transition:none}}
+</style>
+</head>
+<body>
+<div id="abertura" aria-hidden="true">
+  <video id="abertura-video" src="img/abertura.mp4" poster="img/abertura-poster.jpg" muted playsinline preload="auto"></video>
+  <button type="button" id="pular">Pular</button>
+</div>
+<script>
+  // a abertura toca só na primeira visita da sessão (voltar do cardápio não repete)
+  (function(){
+    var visto = false;
+    try { visto = sessionStorage.getItem('holandes-abertura') === '1'; } catch(e){}
+    var reduz = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (visto || reduz) { document.getElementById('abertura').remove(); document.documentElement.classList.add('sem-abertura'); }
+    else { document.documentElement.classList.add('abrindo'); }
+  })();
+</script>
+<main class="wrap">
+  <img class="logo-anim entra" src="img/logo-loop.webp" alt="Holandês Pizzaria, Choperia e Petiscaria" width="420" height="359">
+  <h1 class="sr-only">Pizzaria Holandês · Campo Mourão</h1>
+  <p class="sub entra">Pizzaria, choperia e petiscaria.<br>+100 sabores, chope gelado e espaço kids.</p>
+
+  <div class="chips entra">
+    <span class="chip"><span class="status" id="st"></span><span id="st-txt">Qua a seg · 18h às 23h</span></span>
+    <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>Centro · Campo Mourão-PR</span>
+  </div>
+
+  <nav class="links" aria-label="Links da Pizzaria Holandês">
+    <a class="btn primary" href="https://wa.me/5544999608045?text=Ol%C3%A1!%20Vim%20pelo%20Instagram%20e%20quero%20fazer%20um%20pedido%20%F0%9F%8D%95" target="_blank" rel="noopener">
+      <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.4.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg></span>
+      <span>Pedir pelo WhatsApp<small>Delivery e retirada · <span style="white-space:nowrap">(44) 99960-8045</span></small></span>
+      <svg class="arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m9 6 6 6-6 6"/></svg>
+    </a>
+
+    <a class="btn" href="cardapio.html">
+      <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5a2 2 0 0 1 2-2h12v18H6a2 2 0 0 1-2-2z"/><path d="M8 7h6M8 11h6"/></svg></span>
+      <span>Ver cardápio<small>Pizzas, carnes, porções e sobremesas</small></span>
+      <svg class="arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m9 6 6 6-6 6"/></svg>
+    </a>
+
+    <a class="btn" href="https://www.ifood.com.br/delivery/campo-mourao-pr/pizzaria-holandes-centro/e75c5d45-f376-4fb3-b429-ad585e19dcda" target="_blank" rel="noopener">
+      <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10h18l-1.5 9a2 2 0 0 1-2 1.7H6.5a2 2 0 0 1-2-1.7z"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span>
+      <span>Pedir no iFood</span>
+      <svg class="arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m9 6 6 6-6 6"/></svg>
+    </a>
+
+    <a class="btn" href="https://aiqfome.com/PR/campo-mourao/pizzaria-holandes" target="_blank" rel="noopener">
+      <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="17" r="3"/><circle cx="18" cy="17" r="3"/><path d="M10 17h5l-3-8H8M15 6h3l1 4"/></svg></span>
+      <span>Pedir no aiqfome</span>
+      <svg class="arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m9 6 6 6-6 6"/></svg>
+    </a>
+
+    <div class="sep">Visite a gente</div>
+
+    <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Pizzaria%20Holand%C3%AAs%2C%20Av.%20Manoel%20Mendes%20de%20Camargo%2C%201903%2C%20Campo%20Mour%C3%A3o%20-%20PR" target="_blank" rel="noopener">
+      <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+      <span>Como chegar<small>Av. Manoel Mendes de Camargo, 1903</small></span>
+      <svg class="arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m9 6 6 6-6 6"/></svg>
+    </a>
+
+    <a class="btn" href="tel:+554435238687">
+      <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></span>
+      <span>Ligar para a pizzaria<small>(44) 3523-8687</small></span>
+      <svg class="arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m9 6 6 6-6 6"/></svg>
+    </a>
+
+    <a class="btn" id="avaliar" href="https://g.page/r/CbqXSVzfxFWuEBE/review" target="_blank" rel="noopener">
+      <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.8 2.8 5.8 6.3.9-4.6 4.4 1.1 6.3L12 17.2l-5.6 3 1.1-6.3L2.9 9.5l6.3-.9z"/></svg></span>
+      <span>Avalie a gente no Google<small>Sua opinião ajuda muito ⭐</small></span>
+      <svg class="arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m9 6 6 6-6 6"/></svg>
+    </a>
+  </nav>
+
+  <div class="social">
+    <a href="https://www.instagram.com/pizzariaholandes/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+    <a href="https://www.facebook.com/HolandesPizzaria" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v2H8v4h2v8h4v-8h3l1-4h-4V8.5c0-.3.2-.5.5-.5z"/></svg></a>
+  </div>
+
+  <footer>
+    <strong>Holandês Pizzaria · Choperia · Petiscaria</strong><br>
+    Av. Manoel Mendes de Camargo, 1903 · Centro · Campo Mourão-PR<br>
+    Quarta a segunda, das 18h às 23h · fechado às terças
+  </footer>
+</main>
+<script>
+  // Aberto agora? (horário de Brasília; fechado às terças)
+  (function(){
+    try{
+      var p = new Intl.DateTimeFormat('en-US',{timeZone:'America/Sao_Paulo',weekday:'short',hour:'numeric',hour12:false}).formatToParts(new Date());
+      var d = p.find(function(x){return x.type==='weekday'}).value, h = parseInt(p.find(function(x){return x.type==='hour'}).value,10);
+      var aberto = d !== 'Tue' && h >= 18 && h < 23;
+      document.getElementById('st').className = 'status' + (aberto ? ' on' : '');
+      document.getElementById('st-txt').textContent = aberto ? 'Aberto agora · até 23h' : (d === 'Tue' ? 'Fechado hoje · abre quarta 18h' : 'Abre às 18h · fecha 23h');
+    }catch(e){}
+  })();
+</script>
+<script>
+  // abertura: toca o logo animado e depois revela a página
+  (function(){
+    var raiz = document.documentElement, ab = document.getElementById('abertura');
+    function revelar(){
+      raiz.classList.remove('abrindo'); document.body.classList.add('mostrar');
+      setTimeout(function(){ document.body.classList.add('fim'); }, 2500);
+    }
+    if (!ab) { revelar(); return; }
+    var v = document.getElementById('abertura-video'), feito = false;
+    function fechar(){
+      if (feito) return; feito = true;
+      try { sessionStorage.setItem('holandes-abertura','1'); } catch(e){}
+      ab.classList.add('sair'); revelar();
+      setTimeout(function(){ ab.remove(); }, 800);
+    }
+    v.addEventListener('ended', fechar);
+    document.getElementById('pular').addEventListener('click', fechar);
+    ab.addEventListener('click', fechar);
+    var p = v.play();
+    if (p && p.catch) p.catch(function(){ setTimeout(fechar, 1200); }); // autoplay bloqueado: mostra o pôster e segue
+    setTimeout(fechar, 6000); // trava de segurança
+  })();
+</script>
+</body>
+</html>
